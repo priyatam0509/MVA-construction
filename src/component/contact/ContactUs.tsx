@@ -16,11 +16,15 @@ import {
   ClockCircleOutlined,
 } from "@ant-design/icons";
 import "./ContactUs.css";
+import { useEffect } from "react";
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 
 const ContactUs = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="contact-page">
       {/* PAGE HEADER */}

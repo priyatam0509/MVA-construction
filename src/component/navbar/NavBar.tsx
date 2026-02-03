@@ -19,7 +19,7 @@ if(e==='contact'){
 }
 }
 const getSelectedKey = () =>{
-    if(location.pathname.includes('home')) return['home']
+    if(location.pathname.includes('home')) return['']
     if(location.pathname.includes('project')) return['project']
     if(location.pathname.includes('contact-us')) return['contact']
 }

@@ -1,60 +1,114 @@
+/* =========================
+   PAGE BASE – MATCH HOME & PROJECT
+========================= */
 .contact-page {
-  padding: 40px 24px;
+  background: #f8f7f4; /* same family background */
+  padding-bottom: 80px;
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .contact-header {
+  padding: 96px 24px 64px;
+  background: linear-gradient(
+    rgba(15, 23, 42, 0.75),
+    rgba(15, 23, 42, 0.85)
+  ),
+  url("/assets/construction-bg.jpg") center / cover no-repeat;
   margin-bottom: 64px;
 }
 
-/* CONTACT ACTIONS */
+/* BULKY HEADER TEXT */
+.contact-header h1 {
+  font-size: 52px !important;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.contact-header p {
+  font-size: 17px;
+  color: #e5e7eb;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* =========================
+   ACTION CARDS
+========================= */
 .contact-actions {
-  margin-bottom: 64px;
+  margin-top: -80px; /* floating card effect */
 }
 
 .contact-action-card {
   text-align: center;
-  padding: 32px 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
 }
 
+/* ICONS */
 .action-icon {
-  font-size: 32px;
-  margin-bottom: 16px;
+  font-size: 36px;
+  margin-bottom: 12px;
 }
 
 .action-icon.phone {
-  color: #1677ff;
+  color: #2563eb;
 }
 
 .action-icon.whatsapp {
-  color: #25d366;
+  color: #16a34a;
 }
 
 .action-icon.email {
-  color: #f59e0b;
+  color: #d97706;
 }
 
-/* MESSAGE SECTION */
+/* =========================
+   MESSAGE + OFFICE SECTION
+========================= */
 .message-section {
-  margin-bottom: 64px;
+  margin-top: 80px;
 }
 
-/* MAP */
+.message-section .ant-card {
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   MAP
+========================= */
 .map-section {
-  margin-top: 64px;
+  margin-top: 80px;
 }
 
 .map-placeholder {
   height: 320px;
-  background-color: #f0f2f5;
-  border-radius: 6px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 @media (max-width: 768px) {
+  .contact-header {
+    padding: 72px 16px 48px;
+  }
+
+  .contact-header h1 {
+    font-size: 36px !important;
+  }
+
+  .contact-actions {
+    margin-top: 32px;
+  }
+
   .map-placeholder {
     height: 240px;
   }

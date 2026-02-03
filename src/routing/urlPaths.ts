@@ -1,10 +1,9 @@
-const portalPrefix= '/mva-construction/'
+const portalPrefix= '/mva'
 
 
 
 export const urlPaths = {
-  MAIN_PATH: `${portalPrefix}`,
-  HOME_PATH: `${portalPrefix}home`,
-  PROJECT_PATH:`${portalPrefix}project`,
-  CONTACTUS_PATH:`${portalPrefix}contact-us`
+  HOME_PATH: `${portalPrefix}`,
+  PROJECT_PATH:`${portalPrefix}/project`,
+  CONTACTUS_PATH:`${portalPrefix}/contact-us`
 }

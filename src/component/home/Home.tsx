@@ -1,213 +1,200 @@
 import "./Home.css";
-import { Button } from "antd";
+import { Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { urlPaths } from "../../routing/urlPaths";
-import { useEffect } from "react";
+import maintenanceImg from '../../assets/services/maintaince.jpeg'
+import commericalImg from '../../assets/services/commerical.jpeg'
+import residencialImg from '../../assets/services/Residential.jpeg'
+import support from '../../assets/services/supportI.png'
+import pricing from '../../assets/services/pricing.jpg'
+import logistic from '../../assets/services/logistic.jpg'
+import urbanDev from '../../assets/services/urbanDev.webp'
+import build from '../../assets/services/build.avif'
+import planning from '../../assets/services/planning.avif'
+import infrPlaning from '../../assets/services/infraPalning.jpg'
+import railway from '../../assets/services/railway.png'
 
 const Home = () => {
   const { PROJECT_PATH, CONTACTUS_PATH } = urlPaths;
   const navigate = useNavigate();
 
-  const redirectFunction = (e: string) => {
-    if (e === "project") navigate(PROJECT_PATH);
-    if (e === "contact") navigate(CONTACTUS_PATH);
-  };
-
-  // Scroll animation
-  useEffect(() => {
-    const sections = document.querySelectorAll(".animate-section");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="home">
+    <div className="home-page">
       {/* HERO */}
-      <section className="hero">
+      <section className="hero-section">
         <div className="hero-overlay">
-          <div className="hero-content animate-hero">
+          <div className="hero-content">
+            <span className="hero-badge">Trusted Since 2020</span>
             <h1>
-              Trusted Construction Partner <br />
-              for Railway, Commercial & Residential Projects
+              MVA Constructions <br />
+              Building Quality Infrastructure
             </h1>
-
             <p>
-              Delivering infrastructure, commercial developments and
-              quality housing projects with strong focus on safety,
-              precision and on-time execution.
+              Delivering railway, commercial, and residential construction
+              projects with trust, transparency, and timely execution.
             </p>
 
             <div className="hero-actions">
               <Button
                 type="primary"
                 size="large"
-                onClick={() => redirectFunction("project")}
-              >
-                View Our Projects
-              </Button>
-              <Button
-                size="large"
-                onClick={() => redirectFunction("contact")}
+                onClick={() => navigate(CONTACTUS_PATH)}
               >
                 Contact Us
               </Button>
+              <Button size="large" onClick={() => navigate(PROJECT_PATH)}>
+                View Projects
+              </Button>
+            </div>
+
+            <div className="hero-stats">
+              <div>
+                <h3>25+</h3>
+                <span>Projects Delivered</span>
+              </div>
+              <div>
+                <h3>5+</h3>
+                <span>Years Experience</span>
+              </div>
+              <div>
+                <h3>100%</h3>
+                <span>Client Satisfaction</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="stats">
-        <div className="stats-item animate-stat">5+ Years Experience</div>
-        <div className="stats-item animate-stat">25+ Projects Delivered</div>
-        <div className="stats-item animate-stat">Railway Expertise</div>
-        <div className="stats-item animate-stat">North India Presence</div>
-      </section>
-
-      {/* ABOUT */}
-      <section className="section animate-section">
-        <h2>About MVA Constructions</h2>
-        <p>
-          MVA Constructions is an experienced construction firm executing
-          railway infrastructure, commercial developments and residential
-          housing projects across multiple regions.
-        </p>
-        <p>
-          We follow strict quality standards, safety compliance and
-          transparent project management practices to deliver
-          reliable and long-lasting structures.
-        </p>
+      {/* WHO WE SERVE */}
+      <section className="section light">
+        <h2 className="section-title">Who We Serve</h2>
+        <Row gutter={[24, 24]} justify="center">
+          <Col xs={24} md={6}>
+            <Card className="serve-card">
+              <img src={railway} alt="Railway" />
+              <h3>Railway Infrastructure</h3>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="serve-card">
+              <img src={commericalImg} alt="Commercial" />
+              <h3>Commercial Complexes</h3>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="serve-card">
+              <img src={residencialImg} alt="Residential" />
+              <h3>Residential Housing</h3>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="serve-card">
+              <img src={urbanDev} alt="Urban" />
+              <h3>Urban Development</h3>
+            </Card>
+          </Col>
+        </Row>
       </section>
 
       {/* SERVICES */}
-      <section className="section services animate-section">
-        <h2>Our Core Services</h2>
+      <section className="section light">
+        <h2 className="section-title">Our Services</h2>
+        <Row gutter={[32, 32]}>
+          <Col xs={24} md={6}>
+            <Card className="service-card">
+              <img src={railway} alt="Railway" />
+              <h3>Railway Projects</h3>
+              <p>Station redevelopment & infrastructure works.</p>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="service-card">
+              <img src={commericalImg} alt="Commercial" />
+              <h3>Commercial Construction</h3>
+              <p>Malls, offices, and commercial complexes.</p>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="service-card">
+              <img src={residencialImg} alt="Residential" />
+              <h3>Residential Construction</h3>
+              <p>Quality homes with modern living standards.</p>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="service-card">
 
-        <div className="service-grid">
-          <div className="service-card">
-            <h3>Railway Infrastructure</h3>
-            <p>
-              Station redevelopment, passenger facilities,
-              platform works and structural upgrades.
-            </p>
-          </div>
-
-          <div className="service-card">
-            <h3>Commercial Construction</h3>
-            <p>
-              Shopping malls, office buildings and commercial
-              complexes built for long-term performance.
-            </p>
-          </div>
-
-          <div className="service-card">
-            <h3>Residential Construction</h3>
-            <p>
-              Quality residential homes and housing projects
-              with focus on safety and durability.
-            </p>
-          </div>
-        </div>
+              <img src={maintenanceImg} alt="Maintenance" />
+              <h3>Maintenance</h3>
+              <p>Long-term property & infrastructure maintenance.</p>
+            </Card>
+          </Col>
+        </Row>
       </section>
 
-      
+      {/* WHY CHOOSE US */}
+      <section className="section dark">
+        <h2 className="section-title light-text">
+          Why Choose MVA Constructions
+        </h2>
+        <Row gutter={[24, 24]}>
+          <Col xs={24} md={8}>
+            <Card className="why-card">
+              <img src={pricing} alt="Pricing" />
+              <h3>Competitive Execution</h3>
+              <p>Efficient planning with cost control.</p>
+            </Card>
+          </Col>
+          <Col xs={24} md={8}>
+            <Card className="why-card">
+              <img src={logistic} alt="Logistics" />
+              <h3>Reliable Metrail Delivery</h3>
+              <p>On-time completion with quality checks.</p>
+            </Card>
+          </Col>
+          <Col xs={24} md={8}>
+            <Card className="why-card">
+              <img src={support} alt="Logistics" />
+              <h3>Dedicated Support</h3>
+              <p>Transparent communication & monitoring.</p>
+            </Card>
+          </Col>
+        </Row>
+      </section>
+
       {/* HOW IT WORKS */}
-<section className="how-it-works animate-section">
-  <h2 className="how-title">How It Works</h2>
-  <p className="how-subtitle">
-    Simple, transparent, and hassle-free construction process
-  </p>
-
-  <div className="timeline">
-    {/* STEP 1 */}
-    <div className="timeline-item left">
-      <span className="step-number">01</span>
-      <h3>Technical Consultation</h3>
-      <p>
-        Share your vision with our experienced team. We understand
-        your requirements and guide you with the right approach.
-      </p>
-    </div>
-
-    {/* STEP 2 */}
-    <div className="timeline-item right">
-      <span className="step-number">02</span>
-      <h3>Booking</h3>
-      <p>
-        Secure your project by confirming the scope and finalizing
-        documentation with complete transparency.
-      </p>
-    </div>
-
-    {/* STEP 3 */}
-    <div className="timeline-item left">
-      <span className="step-number">03</span>
-      <h3>Design & Planning</h3>
-      <p>
-        Our architects and engineers create detailed plans aligned
-        with your vision and functional needs.
-      </p>
-    </div>
-
-    {/* STEP 4 */}
-    <div className="timeline-item right">
-      <span className="step-number">04</span>
-      <h3>Home Construction</h3>
-      <p>
-        Execution begins with strict quality checks, safety standards,
-        and regular progress updates.
-      </p>
-    </div>
-
-    {/* STEP 5 */}
-    <div className="timeline-item left">
-      <span className="step-number">05</span>
-      <h3>Move-In</h3>
-      <p>
-        Project handover with quality assurance and long-term
-        support for complete peace of mind.
-      </p>
-    </div>
-  </div>
-</section>
-
-      {/* WHY US */}
-      <section className="section animate-section whySection">
-        <h2 className="whyHeader">Why Choose MVA Constructions</h2>
-
-        <div className="why-grid">
-          <div className="why-item">✔ Railway & Infra Experience</div>
-          <div className="why-item">✔ Skilled Engineering Team</div>
-          <div className="why-item">✔ Safety & Quality Focus</div>
-          <div className="why-item">✔ Transparent Delivery</div>
-          <div className="why-item">✔ Trusted Clients</div>
-        </div>
+      <section className="section light">
+        <h2 className="section-title">How It Works</h2>
+        <Row gutter={[24, 24]} justify="center">
+          <Col xs={24} md={6}>
+            <Card className="step-card">
+              <img src={infrPlaning} alt="Consult" />
+              <h3>Consultation</h3>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="step-card">
+              <img src={planning} alt="Plan" />
+              <h3>Planning</h3>
+            </Card>
+          </Col>
+          <Col xs={24} md={6}>
+            <Card className="step-card">
+              <img src={build} alt="Build" />
+              <h3>Execution</h3>
+            </Card>
+          </Col>
+        </Row>
       </section>
 
       {/* CTA */}
-      <section className="cta animate-section">
-        <h2>Looking for a Reliable Construction Partner?</h2>
-        <p>
-          Connect with MVA Constructions to discuss your
-          project requirements and execution strategy.
-        </p>
-
+      <section className="cta-section">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Partner with MVA Constructions for reliable execution.</p>
         <Button
           type="primary"
           size="large"
-          onClick={() => redirectFunction("contact")}
+          onClick={() => navigate(CONTACTUS_PATH)}
         >
           Get in Touch
         </Button>

@@ -6,7 +6,7 @@ import Footer from '../component/footer/Footer'
 import Project from '../component/project/Project'
 import ContactUs from '../component/contact/ContactUs'
 const PublicRoutes = () => {
-    const { HOME_PATH, MAIN_PATH, PROJECT_PATH,CONTACTUS_PATH } = urlPaths
+    const { HOME_PATH, PROJECT_PATH,CONTACTUS_PATH } = urlPaths
     const redirectPath : any= HOME_PATH
     return (
         <Router>
@@ -14,10 +14,6 @@ const PublicRoutes = () => {
             <div className="main-container">
                 <div className="bg-image">
             <Routes>
-                <Route 
-                path={MAIN_PATH} 
-                element={<Navigate to={redirectPath} 
-                replace />} />
                  <Route path="*" element={<Navigate to ={redirectPath} replace />} />
                 <Route path={HOME_PATH} element={<Home />}/>
                 <Route path={PROJECT_PATH} element={<Project />}/>
